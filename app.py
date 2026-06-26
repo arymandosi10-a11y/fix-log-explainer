@@ -521,7 +521,7 @@ Worst Fill Price: {slip['worst_fill_price']}
 Slippage: {slip['slippage_points']} points
 Slippage Direction: {slip['direction']}
 Filled Quantity: {slip['filled_qty']}
-Estimated Impact: {slip['estimated_impact']} per $1/point multiplier
+
 """
 
     report += "\nTimeline:\n"
