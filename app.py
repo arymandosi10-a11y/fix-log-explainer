@@ -363,7 +363,7 @@ def calculate_slippage(df):
         worst_fill = filled_rows["LastPriceFloat"].iloc[-1]
 
     direction = "Positive Slippage" if positive else "Negative Slippage" if slippage_points > 0 else "No Slippage"
-    estimated_impact = abs(slippage_points) * total_qty
+    estimated_impact = None
 
     return {
         "detected": abs(slippage_points) > 0,
@@ -375,7 +375,7 @@ def calculate_slippage(df):
         "worst_fill_price": round(worst_fill, 6),
         "filled_qty": total_qty,
         "order_qty": order_qty,
-        "estimated_impact": round(estimated_impact, 2),
+        "estimated_impact": None,
         "fills": filled_rows[["Line", "LastQtyFloat", "LastPriceFloat", "Cum Qty", "Avg Price"]].rename(
             columns={"LastQtyFloat": "Fill Qty", "LastPriceFloat": "Fill Price"}
         ),
@@ -661,7 +661,7 @@ if st.button("🚀 Analyze Logs", use_container_width=True):
 <b>{slip["direction"]}</b><br><br>
 Side: {slip["side"]}<br>
 Filled Qty: {slip["filled_qty"]}<br>
-Estimated Impact: {slip["estimated_impact"]} per $1/point multiplier
+
 </div>
 """,
             unsafe_allow_html=True,
