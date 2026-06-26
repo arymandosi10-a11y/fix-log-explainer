@@ -553,7 +553,6 @@ with st.sidebar:
 
 
 st.markdown("# 🧠 Universal Broker Log Analyzer")
-st.markdown("### Explain FIX, MT4, MT5, bridge, LP, server, rejection, execution and slippage logs.")
 
 log_text = ""
 
